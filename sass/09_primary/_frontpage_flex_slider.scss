@@ -1,0 +1,143 @@
+.flexslider {
+  border: 0 !important;   
+  margin-bottom: 0; 
+  @include box-shadow(inset,0,0,0,transparent !important);
+  @include border-radius(0px !important);
+  background: transparent !important;
+  
+  .slides > li {
+    @include position(relative);
+  } 
+
+  .flex-direction-nav {
+    li {
+      border: 0 !important;
+      padding: 0;
+    }
+   
+    a {
+      margin: 0;
+      text-align: center;
+      top: 45%;   
+      opacity:1!important;
+      overflow: visible;    
+      @include size(40px, 40px);
+      @include font-size(0);
+      line-height: 38px;
+      background-color: transparent; 
+      border: 1px solid rgba($white,0.6);
+      &:before {
+        @include font-size(1.6);
+        color: $white;
+        font-family: "FontAwesome";
+      }
+      &:hover {   
+        background-color: $primary;
+        &:before {
+          color: $white;
+        }       
+      }     
+    }
+
+    a.flex-prev {
+      &:before {
+        content:"\f104";
+      } 
+      &:after {
+        left: 5px;
+      }    
+    }
+
+    a.flex-next {
+       &:before {
+        content:"\f105";
+      } 
+      &:after {
+        right: 5px;
+      } 
+    }
+
+  }   
+
+
+  ol.flex-control-paging {
+    text-align: center;   
+    bottom: 15px;
+    z-index: 10;
+    li {
+      float: none;
+      display: inline;
+      padding:0px;
+      margin:0;  
+      a {
+        display: inline-block;
+        @include border-radius(25px !important);
+        background-color: transparent;
+        border: 1px solid $white;
+        text-indent: -9999em !important;
+        margin: 0 5px;
+        box-shadow:none;
+        width: 10px;
+        height: 10px;
+      }   
+
+      a.flex-active,a:hover {
+        border-radius: 25px;
+        background-color:$white;
+      }  
+
+    }
+  }
+
+  
+}
+
+
+.flexslider {
+  .flex-caption {
+      position: absolute;  
+      top: 25%;
+      left: 50%;
+      width: 40%;
+      padding: 25px;
+      z-index:100; 
+      color: $white; 
+      background-color: rgba($secondary,0.5);  
+      margin:0 auto;
+        h1,h2,h3,h4,h5,h6 {
+          position: relative;
+          margin-bottom: 0;
+          color:$white;
+        } 
+
+        p {
+          @include font-size(1.4);
+          margin-bottom: 20px;
+          color: rgba($white,0.8);
+        }
+
+      a,p a {    
+          color: $white;
+          padding: 4px 20px; 
+          margin: 3px 5px 3px 0px;
+          display: inline-block;
+          border-radius:0;
+          background-color: $primary;
+          @include font-size(1.3);
+          &:hover {
+             background-color: $secondary; 
+             color: $white;
+          }
+      }
+      
+      .portfolio-readmore {
+         margin-bottom: 10px;
+         .fa {
+            display: none;
+         }
+      }
+  }
+  .flex-image {
+   position: relative;  
+  }
+}

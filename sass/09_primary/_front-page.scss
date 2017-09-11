@@ -1,0 +1,190 @@
+.home {
+  .site-content {
+      padding-top:0;
+      .site-main {
+        margin-top:0;    
+      }
+  }
+  .site-header {
+    border-bottom: none;
+  }
+}    
+   
+.home.blog .site-content {
+    padding-top: 100px;
+}  
+.blog {
+    article.post {
+      padding: 40px 0px 40px; 
+      .post-thumb {   
+        padding-top: 10px;
+      }
+    }
+    article.post:first-child {
+      padding-top:0;
+    }
+}
+    
+
+/* section title and recent post title */
+.section-head {
+   margin-bottom: 60px;
+   text-align: center;
+  h3 {
+    text-transform: uppercase;
+    margin-bottom:0;
+  }
+  .sub-description {
+
+  }
+}
+
+
+/* Home page service section */
+.services-wrapper {
+  padding: 100px 0px;
+  text-align: center;
+  .service-section {
+     padding: 0px 10px;
+     .service-image {
+        margin-bottom: 25px;
+        a,img {
+          display: block;
+          margin: auto;
+        }
+     }
+     .service-content {
+        @include font-size(1.5);
+        .service-title {
+           position: relative;
+           margin-bottom: 4px;
+           line-height: 3rem;
+           margin-bottom: 10px;
+           @include font-size(2);
+           text-transform: uppercase;
+            a {
+               color: $secondary;
+               &:hover {
+                color: $primary;
+               }
+            }
+        } 
+     }
+     &:nth-of-type(2) {
+       //padding-left: 25px;
+       //padding-right: 25px;
+     } 
+     &:hover {
+       .fa {
+         background-color: $primary;
+         color: $white;
+       }
+     }  
+  }
+}
+
+
+/* Recent Post section */
+.post-wrapper {
+   padding: 80px 0px 70px;
+   background-color: $c2;
+    .latest-posts {
+      .column:nth-child(3n+1) {
+          clear: both;
+      }    
+        
+      .latest-post {
+          @include transition-default(all, 0.5s, ease);
+          overflow: hidden; 
+          position: relative;
+          margin-bottom: 2.5em;
+          text-align: left;
+          margin: 0px 10px 2.5em 10px;
+      }
+
+      .latest-post-thumb {
+       margin-top: 15px;
+        img { 
+          display:block;
+        }
+        .entry-meta {
+          margin:0;
+          margin-top: -14px;
+          .data-structure {
+            margin:0;
+            padding: 7px 20px;
+            color: $white;
+            background-color: $primary;
+              a {
+                  color: $white;
+              }
+          }
+        }
+      } 
+
+      .latest-post-details {
+          padding: 20px 20px 0 0px;
+          h5 {
+              margin-bottom: 0;
+              text-transform: uppercase;
+              a {
+                color: $secondary;
+                &:hover {
+                   color:$primary;
+                }
+              }
+          } 
+          
+          .latest-post-content {
+              margin: 8px 0;
+          }
+            
+          .more-link {
+            display:inline-block;
+            padding: 0;
+            color: $primary;
+            background-color: transparent;
+            margin:0;
+            &:hover {
+              color: $secondary;
+            }
+          }
+      }
+    }  
+
+}
+
+
+/* common to service and post wrapper section */
+.services-wrapper {
+  a.more-link {
+     margin-top:0;
+     background-color: $primary;
+     color: $white;
+     border-radius:0;;
+     padding: 3px 20px;
+     &:hover {
+        background-color: $secondary;
+        color: $white;
+     }
+  }
+}
+
+
+
+/* other pages like 404 */
+.error-404.not-found {
+  //text-align: center;
+  h1.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+    span {
+      color: $c3;
+      display: block;
+    }
+  }
+}
+
+
+
+
