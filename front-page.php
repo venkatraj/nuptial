@@ -70,7 +70,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 					$args = array(
 						'post_type' => 'page',
 						'post__in' => $service_pages,
-						'posts_per_page' => -1,
+						'posts_per_page' => 3,
 						'orderby' => 'post__in'
 					);
 					$query = new WP_Query($args);

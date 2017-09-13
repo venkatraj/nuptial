@@ -221,20 +221,6 @@ if( ! class_exists('Nuptial_Customizer_API_Wrapper') ) {
 						)
 					);
 					break;
-				case 'icons-picker':
-					$wp_customize->add_control( 
-						new Icon_Customizer_Icon_Picker_Control(
-							$wp_customize, 
-							$field_id,
-							array(
-								'label' => isset($label) ? $label : '',
-								'type' => 'icon-picker',
-								'setting' => $field_id,
-								'section' => $this->_section_id,
-							)
-						)
-					); 
-					break;
 				case 'category':
 					$cats = array();
 					foreach ( get_categories() as $cat ){

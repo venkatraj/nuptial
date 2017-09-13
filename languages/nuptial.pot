@@ -21,6 +21,14 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try to search?"
 msgstr ""
 
+#: archive.php:51, index.php:46, search.php:48
+msgid " &larr; Previous Post"
+msgstr ""
+
+#: archive.php:52, index.php:47, search.php:49
+msgid "Next Post &rarr;"
+msgstr ""
+
 #: comments.php:28
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
@@ -82,6 +90,14 @@ msgstr ""
 
 #: functions.php:47
 msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:107
+msgid "Welcome bride and groom"
+msgstr ""
+
+#: functions.php:132
+msgid "<div class=\"eight columns \"><i class=\"fa fa-envelope\"></i><span>Email Us</span><br> info@cpyname.com</div><div class=\"eight columns right\"><i class=\"fa fa-phone\"></i><span>Call Us</span><br>1254-256-212-54</div>"
 msgstr ""
 
 #: functions.php:145
@@ -346,7 +362,7 @@ msgid "Welcome to %1$s - Version %2$s"
 msgstr ""
 
 #: includes/options-config.php:169
-msgid "<div class=\"about-text\"> Nuptial is an elegantly designed WordPress theme for wedding websites. This theme is specially built to showcase your wedding moments and memories. The theme is very versatile and can also be easily used by various types of corporations, business and any kind of sites. core feature of WordPress and lot more of customizer options.</div>"
+msgid "<div class=\"about-text\"> Nuptial is an elegant, responsive WordPress theme designed for wedding websites. It is an attractive, modern, easy to use and colorful design and stunning flexibility. However, due to its flexibility and easiness it can be used to create any types of sites. this Theme build in customizer it is very easy to use and user friendly. Theme includes lots of features. </div>"
 msgstr ""
 
 #: includes/options-config.php:171, includes/options-config.php:321

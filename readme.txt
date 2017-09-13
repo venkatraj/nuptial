@@ -1,6 +1,7 @@
 === Nuptial ===
+=== Nuptial ===
 Contributors: Webulous
-Tags: blog, custom-menu, custom-background, custom-header, custom-logo, featured-images, right-sidebar, sticky-post, threaded-comments, translation-ready, two-columns, one-column, footer-widgets, full-width-template, translation-ready, theme-options
+Tags: \blog, e-commerce, photography, one-column, two-columns, right-sidebar, left-sidebar, featured-images, custom-header, custom-background, custom-menu, custom-logo, footer-widgets,   full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, rtl-language-support
 Requires at least: 4.3
 Tested up to: 4.8.1
 Stable tag: 1.0.0
@@ -13,7 +14,7 @@ Nuptial WordPress Theme, Copyright (C) 2017, N. Venkat Raj
 Nuptial is distributed under the terms of the GNU GPL
 
 == Description ==  
-Nuptial is an elegantly designed WordPress theme for wedding websites. This theme is specially built to showcase your wedding moments and memories. The theme is very versatile and can also be easily used by various types of corporations, business and any kind of sites. core feature of WordPress and lot more of customizer options.
+Nuptial is an elegant, responsive WordPress theme designed for wedding websites. It is an attractive, modern, easy to use and colorful design and stunning flexibility. However, due to its flexibility and easiness it can be used to create any types of sites. this Theme build in customizer it is very easy to use and user friendly. Theme includes lots of features.
 
 == Frequently Asked Questions == 
 = Installation =

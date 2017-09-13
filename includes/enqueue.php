@@ -19,7 +19,7 @@ function nuptial_scripts() {
 	}
 
 	wp_enqueue_script( 'jquery-flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array('jquery'), '2.4.0', true );
-	wp_enqueue_script( 'nuptial-custom', get_template_directory_uri() . '/js/custom.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'nuptial-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0.0', true );
 	
 }
 add_action( 'wp_enqueue_scripts', 'nuptial_scripts' );         
@@ -43,6 +43,7 @@ function nuptial_theme_font_url($font) {
 }
 
 function nuptial_admin_enqueue_scripts( $hook ) {  
+	if( strpos($hook, 'nuptial_upgrade') ) {
 		wp_enqueue_style( 
 			'font-awesome', 
 			get_template_directory_uri() . '/css/font-awesome.min.css', 
@@ -57,5 +58,6 @@ function nuptial_admin_enqueue_scripts( $hook ) {
 			'1.0.0', 
 			'all' 
 		);
+	}
 }
 add_action( 'admin_enqueue_scripts', 'nuptial_admin_enqueue_scripts' );

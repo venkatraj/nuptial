@@ -104,7 +104,7 @@ function nuptial_setup() {
 		        	'text' , 
 		        	// Widget $instance -> settings 
 					array(
-					  'text'  => 'Welcome bride and groom'
+					  'text'  => __('Welcome bride and groom','nuptial')
 					)
 				)
 			),
@@ -129,7 +129,7 @@ function nuptial_setup() {
 		        	'text' , 
 		        	// Widget $instance -> settings 
 					array(
-					  'text'  => '<div class="eight columns "><i class="fa fa-envelope"></i><span>Email Us</span><br> info@cpyname.com</div><div class="eight columns right"><i class="fa fa-phone"></i><span>Call Us</span><br>1254-256-212-54</div>'
+					  'text'  => __('<div class="eight columns "><i class="fa fa-envelope"></i><span>Email Us</span><br> info@cpyname.com</div><div class="eight columns right"><i class="fa fa-phone"></i><span>Call Us</span><br>1254-256-212-54</div>','nuptial')
 					)
 				),
 				'search',

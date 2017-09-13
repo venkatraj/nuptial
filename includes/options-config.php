@@ -158,7 +158,7 @@ function nuptial_display_upgrade() {
     } else {
         $tab = null;
     } 
-     
+      
     $pro_theme_url = 'https://webulousthemes.com/theme/nuptial-pro/';
     $doc_url  = 'https://www.webulousthemes.com/nuptial-free';
     $support_url = 'https://webulousthemes.com/free-support-request/';   
@@ -166,7 +166,7 @@ function nuptial_display_upgrade() {
     $current_action_link =  admin_url( 'themes.php?page=nuptial_upgrade&tab=pro_features' ); ?>
     <div class="nuptial-wrapper about-wrap">
         <h1><?php printf( esc_html__('Welcome to %1$s - Version %2$s', 'nuptial'), $theme_data->Name ,$theme_data->Version ); ?></h1><?php
-       	printf( __('<div class="about-text"> Nuptial is an elegantly designed WordPress theme for wedding websites. This theme is specially built to showcase your wedding moments and memories. The theme is very versatile and can also be easily used by various types of corporations, business and any kind of sites. core feature of WordPress and lot more of customizer options.</div>', 'nuptial') ); ?>
+       	printf( __('<div class="about-text"> Nuptial is an elegant, responsive WordPress theme designed for wedding websites. It is an attractive, modern, easy to use and colorful design and stunning flexibility. However, due to its flexibility and easiness it can be used to create any types of sites. this Theme build in customizer it is very easy to use and user friendly. Theme includes lots of features. </div>', 'nuptial') ); ?>
         <a href="https://webulousthemes.com/" target="_blank" class="wp-badge welcome-logo"></a>   
         <p class="upgrade-btn"><a class="upgrade" href="<?php echo esc_url($pro_theme_url); ?>" target="_blank"><?php printf( __( 'Buy %1s Pro - $39', 'nuptial'), $theme_data->Name ); ?></a></p>
 
@@ -331,7 +331,7 @@ function nuptial_display_upgrade() {
    
 
 	$options = array(
-		'capability' => 10,
+		'capability' => 'edit_theme_options',
 		'type' => 'theme_mod',
 		'panels' => apply_filters( 'nuptial_customizer_options', array(
 			'nuptial' => array(
