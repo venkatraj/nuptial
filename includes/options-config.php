@@ -159,19 +159,20 @@ function nuptial_display_upgrade() {
         $tab = null;
     } 
       
-    $pro_theme_url = 'https://webulousthemes.com/theme/nuptial-pro/';
+    $pro_theme_url = 'https://www.webulousthemes.com/theme/nuptial-pro/';
     $doc_url  = 'https://www.webulousthemes.com/nuptial-free';
-    $support_url = 'https://webulousthemes.com/free-support-request/';   
+    $support_url = 'https://www.webulousthemes.com/free-support-request/';   
     
     $current_action_link =  admin_url( 'themes.php?page=nuptial_upgrade&tab=pro_features' ); ?>
     <div class="nuptial-wrapper about-wrap">
-        <h1><?php printf( esc_html__('Welcome to %1$s - Version %2$s', 'nuptial'), $theme_data->Name ,$theme_data->Version ); ?></h1><?php
-       	printf( __('<div class="about-text"> Nuptial is an elegant, responsive WordPress theme designed for wedding websites. It is an attractive, modern, easy to use and colorful design and stunning flexibility. However, due to its flexibility and easiness it can be used to create any types of sites. this Theme build in customizer it is very easy to use and user friendly. Theme includes lots of features. </div>', 'nuptial') ); ?>
-        <a href="https://webulousthemes.com/" target="_blank" class="wp-badge welcome-logo"></a>   
+        <h1><?php printf( esc_html__('Welcome to %1$s - Version %2$s', 'nuptial'), $theme_data->Name ,$theme_data->Version ); ?></h1><?php echo
+       	sprintf( '<div class="about-text">%1$s</div>',__('Nuptial is an elegant, responsive WordPress theme designed for wedding websites. It is an attractive, modern, easy to use and colorful design and stunning flexibility. However, due to its flexibility and easiness it can be used to create any types of sites. this Theme build in customizer it is very easy to use and user friendly. Theme includes lots of features.','nuptial') ); ?>
+        <a href="https://www.webulousthemes.com/" target="_blank" class="wp-badge welcome-logo"></a>   
         <p class="upgrade-btn"><a class="upgrade" href="<?php echo esc_url($pro_theme_url); ?>" target="_blank"><?php printf( __( 'Buy %1s Pro - $39', 'nuptial'), $theme_data->Name ); ?></a></p>
 
 	   <h2 class="nav-tab-wrapper">
 	        <a href="?page=nuptial_upgrade" class="nav-tab<?php echo is_null($tab) ? ' nav-tab-active' : null; ?>"><?php echo $theme_data->Name; ?></a>
+			<a href="?page=nuptial_upgrade&tab=one_click_demo" class="nav-tab<?php echo $tab == 'one_click_demo' ? ' nav-tab-active' : null; ?>"><?php esc_html_e( 'Import Demo Data', 'nuptial' );  ?></a>
 	        <a href="?page=nuptial_upgrade&tab=pro_features" class="nav-tab<?php echo $tab == 'pro_features' ? ' nav-tab-active' : null; ?>"><?php esc_html_e( 'PRO Features', 'nuptial' );  ?></a>
             <a href="?page=nuptial_upgrade&tab=free_vs_pro" class="nav-tab<?php echo $tab == 'free_vs_pro' ? ' nav-tab-active' : null; ?>"><?php esc_html_e( 'Free VS PRO', 'nuptial' ); ?></a>
 	        <?php do_action( 'nuptial_admin_more_tabs' ); ?>
@@ -180,6 +181,16 @@ function nuptial_display_upgrade() {
         <?php if ( is_null( $tab ) ) { ?>
             <div class="theme_info info-tab-content">
                 <div class="theme_info_column clearfix">
+                	<div id="webulous-create-web">
+	                	<a href="https://www.webulousthemes.com/checkout?edd_action=add_to_cart&download_id=23052" target="_blank">
+							<div id="webulous-mode-wrap">
+								<?php echo sprintf ('<h3>%1$s</h3><p>%2$s</p>',__('New to Creating a Website?','nuptial'),__('We will build you a complete website based on the theme you selected. We will populate content, change colors and do any look and feel customisation work you prefer.','nuptial') ); ?>
+							</div>
+							<div class="image-wrap">
+								<?php echo sprintf ( '<img src="'. get_template_directory_uri() .'/images/api.png" alt="%1$s" />',__('Image','nuptial') ); ?>
+							</div>
+						</a>
+					</div>
                     <div class="theme_info_left">
                         <div class="theme_link">
                             <h3><?php esc_html_e( 'Theme Customizer', 'nuptial' ); ?></h3>
@@ -207,11 +218,29 @@ function nuptial_display_upgrade() {
                     </div>  
 
                     <div class="theme_info_right">
-                        <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="Theme Screenshot" />
+                        <?php echo sprintf ( '<img src="'. get_template_directory_uri() .'/screenshot.png" alt="%1$s" />',__('Theme screenshot','nuptial') ); ?>
                     </div>
                 </div>
             </div>
         <?php } ?>
+
+         <?php if ( $tab == 'one_click_demo' ) { ?>
+            <div class="one-click-demo-tab info-tab-content">
+				<div class="wrap clearfix">
+					<?php
+					if( ! function_exists('is_plugin_activate') ) {
+						include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+					}
+					if ( nuptial_is_plugin_installed('One Click Demo Import') != 1 ) {
+						echo sprintf('%1$s <a href="%2$s"> %3$s</a>', __('Install required plugin to import the demo content.','nuptial'), admin_url('themes.php?page=tgmpa-install-plugins&plugin_status=install'), __('Begin Installing Plugin','nuptial') );
+					} elseif ( is_plugin_active( 'one-click-demo-import/one-click-demo-import.php' ) ) {	
+						echo sprintf('<a href="%1$s"> %2$s</a>',  admin_url('themes.php?page=pt-one-click-demo-import'), __('Click here to install the demo','nuptial') );
+				    } else {
+				    	echo sprintf('%1$s <a href="%2$s"> %3$s</a>', __('Kindly activate the Required plugin to Import the demo content.','nuptial'), admin_url('themes.php?page=tgmpa-install-plugins&plugin_status=activate'), __('Begin Activating Plugin','nuptial') );
+				    } ?>
+				</div>
+			</div><?php   
+		} ?> 
 
         <?php if ( $tab == 'pro_features' ) { ?>
             <div class="pro-features-tab info-tab-content"><?php
@@ -230,8 +259,8 @@ function nuptial_display_upgrade() {
 		                <thead>
 			                <tr>
 			                    <th></th>
-			                    <th><?php echo $theme_data->Name; ?> Lite</th>
-			                    <th><?php echo $theme_data->Name; ?> PRO</th>
+			                    <th><?php echo esc_html($theme_data->Name); ?> Lite</th>
+			                    <th><?php echo esc_html($theme_data->Name); ?> PRO</th>
 			                </tr>
 		                </thead>
 		                <tbody>
@@ -410,6 +439,12 @@ function nuptial_display_upgrade() {
 								'default' => 1,
 								'sanitize_callback' => 'nuptial_boolean',
 							),
+							'scroll_to_top' => array(
+								'type' => 'checkbox',
+								'label' => __('Enable Scroll To Top', 'nuptial'),
+								'default' => 0,
+								'sanitize_callback' => 'nuptial_boolean',
+							),
 							'copyright' => array(
                                 'type' => 'textarea',
                                 'label' => __('Footer Copyright Text (Validated that it\'s HTML Allowed)', 'nuptial'),
@@ -468,7 +503,6 @@ function nuptial_display_upgrade() {
 							'enable_recent_post_service' => array(
                                 'type' => 'checkbox',
                                 'label' => __('Enable Home Page Recent Post Section', 'nuptial'),
-                                'description' => __('Enable recent post section in home page', 'nuptial'),
                                 'default' => 1,
                                 'sanitize_callback' => 'nuptial_boolean',  
                             ),
@@ -483,10 +517,14 @@ function nuptial_display_upgrade() {
 								'sanitize_callback' => 'absint',
 								'default' => 3,  
 							), 
+							'recent_posts_exclude' => array(
+								'type' => 'text',
+								'label' => __('Exclude the Posts from Home Page. Post IDs, separated by commas.', 'nuptial'),
+								'sanitize_callback' => 'sanitize_text_field', 
+							),
 							'enable_home_default_content' => array(
                                 'type' => 'checkbox',
                                 'label' => __('Enable Home Page Default Content', 'nuptial'),
-                                'description' => __('Enable home page default content', 'nuptial'),
                                 'default' => 0,  
                                 'sanitize_callback' => 'nuptial_boolean',
                             ),
@@ -512,53 +550,86 @@ function nuptial_display_upgrade() {
                                 'default' => '1', 
                                 'sanitize_callback' => 'absint',
                             ),
+						),
+					),
+					'single_blog' => array(
+						'title' => __('Single Blog', 'nuptial'),
+						'description' => __('Single Blog page Related Posts options', 'nuptial'),
+						'fields' => array(
 							'single_featured_image' => array(
 								'type' => 'checkbox',
 								'label' => __('Enable Single Post Featured Image', 'nuptial'),
 								'default' => 1,
 								'sanitize_callback' => 'nuptial_boolean',
 							),
-                            'single_featured_image_size' => array(
-                                'type' => 'radio',
-                                'label' => __('Choose the featured image display type for Single Page ', 'nuptial'),
-                                'choices' => array(
-                                    '1' => __('Large Featured Image', 'nuptial'),
-                                    '2' => __('Small Featured Image', 'nuptial'),       
-                                ),
-                                'default' => '1', 
-                                'sanitize_callback' => 'absint',  
-                            ),
-                             'author_bio_box' => array(
-                                'type' => 'checkbox',
-                                'label' => __(' Enable Author Bio Box below single post', 'nuptial'),
-                                'description' => __('Show Author information box below single post.', 'nuptial'),
-                                'default' => 0,
-                                'sanitize_callback' => 'nuptial_boolean',    
-                            ),
-                            'related_posts' => array(
-                                'type' => 'checkbox',
-                                'label' => __('Show Related posts', 'nuptial'),
-                                'description' => __('Show related posts.', 'nuptial'),
-                                'default' => 0, 
-                                'sanitize_callback' => 'nuptial_boolean', 
-                            ),
-                            'related_posts_hierarchy' => array(
-                                'type' => 'radio',
-                                'label' => __('Related Posts Must Be Shown As:', 'nuptial'),
-                                'choices' => array(
-                                    '1' => __('Related Posts By Tags', 'nuptial'),
-                                    '2' => __('Related Posts By Categories', 'nuptial'),      
-                                ),
-                               'default' => '1', 
-                               'sanitize_callback' => 'absint',    
-                            ),
-                            'comments' => array(
-                                'type' => 'checkbox',
-                                'label' => __(' Show Comments', 'nuptial'),
-                                'description' => __('Show Comments', 'nuptial'),
-                                'default' => 1,  
-                                'sanitize_callback' => 'nuptial_boolean',
-                            ),
+							'single_featured_image_size' => array(
+								'type' => 'radio',
+								'label' => __('Choose the featured image display type for Single Page ', 'nuptial'),
+								'choices' => array(
+									'1' => __('Large Featured Image', 'nuptial'),
+									'2' => __('Small Featured Image', 'nuptial'),       
+								),
+								'default' => '1', 
+								'sanitize_callback' => 'absint',  
+							),
+							'social_sharing_box' => array(
+								'type' => 'checkbox',
+								'label' => __(' Enable Social Sharing Box below single post', 'nuptial'),
+								'default' => 0,
+								'sanitize_callback' => 'nuptial_boolean',    
+							),
+							'facebook_sb' => array(
+								'type' => 'checkbox',
+								'label' => __(' Enable Facebook Sharing option below single post', 'nuptial'),
+								'default' => 0,
+								'sanitize_callback' => 'nuptial_boolean',    
+							),
+							'twitter_sb' => array(
+								'type' => 'checkbox',
+								'label' => __(' Enable Twitter Sharing option below single post', 'nuptial'),
+								'default' => 0,
+								'sanitize_callback' => 'nuptial_boolean',    
+							),
+							'linkedin_sb' => array(
+								'type' => 'checkbox',
+								'label' => __(' Enable Linkedin Sharing option below single post', 'nuptial'),
+								'default' => 0,
+								'sanitize_callback' => 'nuptial_boolean',    
+							),
+							'google-plus_sb' => array(
+								'type' => 'checkbox',
+								'label' => __(' Enable Google Plus Sharing option below single post', 'nuptial'),
+								'default' => 0,
+								'sanitize_callback' => 'nuptial_boolean',    
+							),
+							'email_sb' => array(
+								'type' => 'checkbox',
+								'label' => __(' Enable Email Sharing option below single post', 'nuptial'),
+								'default' => 0,
+								'sanitize_callback' => 'nuptial_boolean',    
+							),
+							'author_bio_box' => array(
+								'type' => 'checkbox',
+								'label' => __(' Enable Author Bio Box below single post', 'nuptial'),
+								'default' => 0,
+								'sanitize_callback' => 'nuptial_boolean',    
+							),
+							'related_posts' => array(
+								'type' => 'checkbox',
+								'label' => __('Show Related posts', 'nuptial'),
+								'default' => 0, 
+								'sanitize_callback' => 'nuptial_boolean', 
+							),
+							'related_posts_hierarchy' => array(
+								'type' => 'radio',
+								'label' => __('Related Posts Must Be Shown As:', 'nuptial'),
+								'choices' => array(
+									'1' => __('Related Posts By Tags', 'nuptial'),
+									'2' => __('Related Posts By Categories', 'nuptial'),      
+								),
+								'default' => '1', 
+								'sanitize_callback' => 'absint',    
+							),
 						),
 					),
 
@@ -590,19 +661,19 @@ if ( ! function_exists( 'nuptial_footer_copyright' ) ) {
 
     function nuptial_footer_copyright($string) {
         $allowed_tags = array(    
-                            'a' => array(
-                            	'href' => array(),
-								'title' => array(),
-								'target' => array(),
-                            ),
-							'img' => array(
-								'src' => array(),  
-								'alt' => array(),
-							),
-							'p' => array(),
-							'br' => array(),
-							'em' => array(),
-                            'strong' => array(),
+			'a' => array(
+				'href' => array(),
+				'title' => array(),
+				'target' => array(),
+			),
+			'img' => array(
+				'src' => array(),  
+				'alt' => array(),
+			),
+			'p' => array(),
+			'br' => array(),
+			'em' => array(),
+			'strong' => array(),
         );
         return wp_kses( $string,$allowed_tags);
 

@@ -113,7 +113,7 @@ if( ! function_exists('nuptial_top_meta') ) {
 		if ( 'post' == get_post_type() ) {  ?>
 			<div class="entry-meta">
 				<span class="date-structure">				
-					<span class="dd"><a class="url fn n" href="<?php echo get_day_link(get_the_time('Y'), get_the_time('m'),get_the_time('d')); ?>"><i class="fa fa-calendar"></i><?php the_time(get_option('date_format')); ?></a></span>			
+					<span class="dd"><a class="url fn n" href="<?php echo esc_url (get_day_link(get_the_time('Y'), get_the_time('m'),get_the_time('d')) ); ?>"><i class="fa fa-calendar"></i><?php the_time(get_option('date_format')); ?></a></span>			
 				</span>  
 				<?php nuptial_author(); ?>
 				<?php nuptial_comments_meta(); ?> 
@@ -134,7 +134,8 @@ if( ! function_exists('nuptial_top_meta') ) {
 if( ! function_exists('nuptial_recent_posts') ) {  
 	function nuptial_recent_posts() {       
 		$output = '';
-		$posts_per_page  = get_theme_mod('recent_posts_count', 3 );
+		$posts_per_page  = get_theme_mod('recent_posts_count', 3 ); 
+		$post_ID  = explode (',',get_theme_mod('recent_posts_exclude'));
 		// WP_Query arguments
 		$args = array (
 			'post_type'              => 'post',
@@ -142,6 +143,7 @@ if( ! function_exists('nuptial_recent_posts') ) {
 			'posts_per_page'         => intval($posts_per_page),
 			'ignore_sticky_posts'    => true,
 			'order'                  => 'DESC',
+			'post__not_in'           => $post_ID,
 		);
 
 		// The Query
@@ -159,20 +161,23 @@ if( ! function_exists('nuptial_recent_posts') ) {
 				$output .= '<h3>' . get_the_title(absint($recent_section_title)) . '</h3>';
 				$description = get_post_field('post_content',absint($recent_section_title));
 				if($description)
-				$output .= '<p class="sub-description">' . $description . '</p>';
+				$output .= '<p class="sub-description">' . esc_html($description) . '</p>';
 			    $output .= '</div>';
 			}
 			$output .= '<div class="latest-posts clearfix">';
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				$output .= '<div class="one-third column">';
+				$output .= '<div class="one-third column">'; 
 						$output .= '<div class="latest-post">';
 								$output .= '<div class="latest-post-thumb">'; 
 										if ( has_post_thumbnail() ) {
 											$output .= '<a href="'. esc_url(get_permalink()) . '">'. get_the_post_thumbnail($query->post->ID ,'nuptial-recent-posts-img').'</a>';
 										}	
-											$output .='<div class="entry-meta">';  
-								$output .='<span class="data-structure"><a class="url fn n" href="'. get_day_link(get_the_time('Y'), get_the_time('m'),get_the_time('d')). '"><span class="dd">' . get_the_time('F j, Y').'</span></a></span>';
+										else {  
+											$output .= '<a href="'. esc_url(get_permalink()) . '"><img src="' . get_template_directory_uri()  . '/images/no-image-blog-full-width.png" alt="" ></a>';
+										}
+								$output .='<div class="entry-meta">';  
+								$output .='<span class="data-structure"><a class="url fn n" href="'. esc_url (get_day_link(get_the_time('Y'), get_the_time('m'),get_the_time('d')) ). '"><span class="dd">' . get_the_time('F j, Y').'</span></a></span>';
 									$output .='</div><!-- entry-meta -->';	
 								$output .= '</div><!-- .latest-post-thumb -->';
 								$output .= '<div class=latest-post-details>';
@@ -295,16 +300,6 @@ if( ! function_exists('nuptial_recent_posts') ) {
 			} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
 				$post_type = get_post_type_object(get_post_type());
 				echo $before . $post_type->labels->singular_name . $after;
-
-			} elseif ( is_attachment() ) {
-				$parent = get_post($post->post_parent);
-				$cat = get_the_category($parent->ID); $cat = $cat[0];
-				$cats = get_category_parents($cat, TRUE, $delimiter);
-				$cats = str_replace('<a', $linkBefore . '<a' . $linkAttr, $cats);
-				$cats = str_replace('</a>', '</a>' . $linkAfter, $cats);
-				echo $cats;
-				printf($link, get_permalink($parent), $parent->post_title);
-				if ($showCurrent == 1) echo $delimiter . $before . get_the_title() . $after;
 
 			} elseif ( is_page() && !$post->post_parent ) {
 				if ($showCurrent == 1) echo $before . get_the_title() . $after;

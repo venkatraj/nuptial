@@ -26,14 +26,15 @@
 				<?php if( get_theme_mod('copyright') ) : ?>
 							<p><?php echo nuptial_footer_copyright(get_theme_mod('copyright')); ?></p>
 						<?php else : 
-								printf( __('<p>Powered by <a href="%1$s" target="_blank">WordPress</a>', 'nuptial'), esc_url( 'http://wordpress.org/') );
-								printf( '<span class="sep"> .</span>' );
-								printf( __( 'Theme: Nuptial by <a href="%1$s" target="_blank" rel="designer">Webulous Themes</a></p>', 'nuptial' ), esc_url('http://www.webulousthemes.com/') );
+							echo sprintf( '<p> %1$s <a href="%2$s" target="_blank"> %3$s</a> %4$s <a href="%5$s" target="_blank" rel="designer">%6$s</a></p>', __('Powered by','nuptial'), esc_url( 'http://wordpress.org/'), __('WordPress.','nuptial'), __('Theme: Nuptial by','nuptial'), esc_url('https://www.webulousthemes.com/'), __('Webulous Themes','nuptial')) ;
 					 endif;  ?>
 				</div>
 
 			</div>
 		</div><!-- .site-info -->
+		<?php if( get_theme_mod('scroll_to_top') ) : ?>
+			<div class="scroll-to-top"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+		<?php endif;  ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

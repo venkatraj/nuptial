@@ -34,14 +34,16 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 								    	    <div class="gym-slide-overlay"></div>
 								    		<?php the_post_thumbnail('full'); ?>
 								    	</div>
-								    	<div class="flex-caption">
-								    		<?php the_content();
-												wp_link_pages( array(
-													'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nuptial' ),
+								    	<?php $content = get_the_content();
+								    	if( !empty( $content ) ) { ?>
+								    		<div class="flex-caption">
+									    		<?php the_content( __('Read More','nuptial') ); 
+										    	wp_link_pages( array(
+													'before' => '<div class="page-links">' . esc_html__( 'Pages: ', 'nuptial' ),
 													'after'  => '</div>',
-												) );
-											?>
-								    	</div>
+												) ); ?>
+								    		</div>
+								    	<?php } ?>
 								    </li>
 							    <?php endif;?>			   
 						<?php endwhile; ?>
@@ -82,7 +84,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 								echo '<h3>' . get_the_title(absint($service_section_title)) . '</h3>';
 								$description = get_post_field('post_content',absint($service_section_title));
 								if($description)
-								echo '<p class="sub-description">' . $description . '</p>';
+								echo '<p class="sub-description">' . esc_html($description) . '</p>';
 							    echo '</div>';
 							}
 

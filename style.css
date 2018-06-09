@@ -1,10 +1,10 @@
 /*
 Theme Name: Nuptial   
-Theme URI: http://www.webulousthemes.com/nuptial/
+Theme URI: https://www.webulousthemes.com/nuptial/
 Author: N. Venkat Raj
-Author URI: http://www.webulousthemes.com/                          
+Author URI: https://www.webulousthemes.com/                          
 Description: Nuptial is an elegant, responsive WordPress theme designed for wedding websites. It is an attractive, modern, easy to use and colorful design and stunning flexibility. However, due to its flexibility and easiness it can be used to create any types of sites. this Theme build in customizer it is very easy to use and user friendly. Theme includes lots of features.
-Version: 1.0.0         
+Version: 1.0.2      
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: nuptial  
@@ -1369,7 +1369,6 @@ object {
     margin-right: 2px; }
     .top-nav .cart-right li:nth-of-type(1) {
       margin-right: 0;
-      padding-right: 0;
       padding-left: 5px; }
   .top-nav .cart-right {
     padding: 0px 35px 0px 0;
@@ -1446,16 +1445,16 @@ object {
   .share-box ul li {
     border: 0;
     padding: 0;
-    margin: 0 8px 0px 0px;
+    margin: 0 10px 0px 0px;
     display: inline-block; }
     .share-box ul li a {
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
       color: #000000;
       display: inline-block;
       background-color: #000000;
       text-align: center;
-      line-height: 30px;
+      line-height: 35px;
       -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
       color: #fff; }
@@ -1466,8 +1465,7 @@ object {
         -webkit-transform: rotate(-45deg);
                 transform: rotate(-45deg);
         font-size: 14px;
-        font-size: 1.4rem;
-        line-height: 2; }
+        font-size: 1.4rem; }
 
 .share-box {
   margin-bottom: 50px; }
@@ -1831,10 +1829,8 @@ blockquote {
     .post .latest-content a.more-link .fa {
       display: none; }
 
-.home .site-content {
-  padding-top: 0; }
-  .home .site-content .site-main {
-    margin-top: 0; }
+.home .site-content .site-main {
+  margin-top: 0; }
 
 .home .site-header {
   border-bottom: none; }
@@ -1890,7 +1886,7 @@ blockquote {
 
 /* Recent Post section */
 .post-wrapper {
-  padding: 80px 0px 70px;
+  padding: 80px 0px 20px;
   background-color: #f2f2f2; }
   .post-wrapper .latest-posts .column:nth-child(3n+1) {
     clear: both; }
@@ -1926,6 +1922,8 @@ blockquote {
           color: #d44646; }
     .post-wrapper .latest-posts .latest-post-details .latest-post-content {
       margin: 8px 0; }
+      .post-wrapper .latest-posts .latest-post-details .latest-post-content h1, .post-wrapper .latest-posts .latest-post-details .latest-post-content h2, .post-wrapper .latest-posts .latest-post-details .latest-post-content h3, .post-wrapper .latest-posts .latest-post-details .latest-post-content h4, .post-wrapper .latest-posts .latest-post-details .latest-post-content h5, .post-wrapper .latest-posts .latest-post-details .latest-post-content h6 {
+        line-height: normal; }
     .post-wrapper .latest-posts .latest-post-details .more-link {
       display: inline-block;
       padding: 0;
@@ -2915,13 +2913,28 @@ blockquote {
       border-bottom: none; }
     .site-footer .footer-widgets .widget_tag_cloud a {
       color: #fff; }
-      .site-footer .footer-widgets .widget_tag_cloud a:hover {
-        background-color: #d44646; }
     .site-footer .footer-widgets ul li {
       padding-left: 2%;
       list-style: none; }
     .site-footer .footer-widgets .widget_rss ul li {
       background: none; }
+  .site-footer .scroll-to-top {
+    background: #d44646;
+    color: #fff;
+    bottom: 10%;
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    z-index: 999;
+    text-align: center;
+    line-height: 40px;
+    width: 40px;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */
+    border-radius: 4px;
+    transition: background-color 0.3s linear; }
+  .site-footer .scroll-to-top:hover {
+    background: rgba(212, 70, 70, 0.8); }
 
 .site-info {
   background: #d44646;

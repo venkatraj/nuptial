@@ -1,10 +1,9 @@
 === Nuptial ===
-=== Nuptial ===
 Contributors: Webulous
-Tags: \blog, e-commerce, photography, one-column, two-columns, right-sidebar, left-sidebar, featured-images, custom-header, custom-background, custom-menu, custom-logo, footer-widgets,   full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, rtl-language-support
+Tags: blog, e-commerce, photography, one-column, two-columns, right-sidebar, left-sidebar, featured-images, custom-header, custom-background, custom-menu, custom-logo, footer-widgets,   full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, rtl-language-support
 Requires at least: 4.3
-Tested up to: 4.8.1
-Stable tag: 1.0.0
+Tested up to: 4.9.6
+Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
      
@@ -47,13 +46,21 @@ Enable/Disable featured images visibility.
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.2 =
+ * Social Sharing Box option added in Single post.
+ * Added site Creation Ads in Theme Upgrade Page.
+ * Scroll to Top option added.
+
+= 1.0.1 =
 * Initial Release
 
 == Upgrade Notice ==
 
-=  1.0.0 =
-* Initial Release
+= 1.0.2 =
+ * Social Sharing Box option added in Single post.
+ * Added site Creation Ads in Theme Upgrade Page.
+ * Scroll to Top option added.
+
 
 Nuptial WordPress Theme bundles the following third-party resources:
 == Resources ==
@@ -61,10 +68,12 @@ Nuptial WordPress Theme bundles the following third-party resources:
 * {Skeleton}, MIT, https://github.com/dhg/Skeleton#license
 * {Flexslider} © 2015 Woo Themes, GPLv2 ,https://github.com/woothemes/FlexSlider
 * {FontAwesome} © Dave Gandy, SIL OFL 1.1 and MIT ,https://fortawesome.github.io/Font-Awesome
-* Screenshot Images is licensed under CC0 Public Domain License.
+* {TGM Plugin Activation} library is licensed under the GPL-2.0, https://github.com/TGMPA/TGM-Plugin-Activation/
+
+* Screenshot Images is licensed under CC0 Public Domain License.(http://pixabay.com/en/service/terms/)
 	* image © 2015 Pixabay, CC0 1.0 ,https://pixabay.com/en/people-crowd-couple-wedding-bride-2568982/
 	* image © 2015 Pixabay, CC0 1.0 ,https://pixabay.com/en/people-girl-guy-man-woman-bride-2568671/
 	* image © 2015 Pixabay, CC0 1.0 ,https://pixabay.com/en/bouquet-flowers-purple-rose-man-690657/
 	* image © 2015 Pixabay, CC0 1.0 ,https://pixabay.com/en/wedding-matrimonio-sun-wife-love-2556191/
-* All Images inside the images folder are created by own. Those Image are licensed under CC0 Public Domain License GPLv3.
+* All Images inside the images folder are created by own. Those Image are licensed under CC0 Public Domain.
 
