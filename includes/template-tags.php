@@ -135,7 +135,7 @@ if( ! function_exists('nuptial_recent_posts') ) {
 	function nuptial_recent_posts() {       
 		$output = '';
 		$posts_per_page  = get_theme_mod('recent_posts_count', 3 ); 
-		$post_ID  = explode (',',get_theme_mod('recent_posts_exclude'));
+		$post_ID  = explode (',',get_theme_mod('recent_posts_exclude')); 
 		// WP_Query arguments
 		$args = array (
 			'post_type'              => 'post',
@@ -507,4 +507,13 @@ function nuptial_admin_notice() { ?>
         <p><?php printf( __( 'Welcome! Thank you for choosing %1$s! To fully take advantage of the best our theme can offer please make sure you visit our <a href="%2$s">Welcome page</a>', 'nuptial' ), 'Nuptial', esc_url( admin_url( 'themes.php?page=nuptial_upgrade' ) ) ); ?></p>
     	<p><a href="<?php echo esc_url( admin_url( 'themes.php?page=nuptial_upgrade' ) ); ?>" class="button" style="text-decoration: none;"><?php _e( 'Get started with Nuptial', 'nuptial' ); ?></a></p>
     </div><?php
+}
+if (!defined('WPFORMS_SHAREASALE_ID')) define('WPFORMS_SHAREASALE_ID', '1426852');
+remove_all_filters('wpforms_shareasale_id', 998);
+add_filter('wpforms_shareasale_id','wbls_wp_forms_shareasale', 999);
+
+function wbls_wp_forms_shareasale($shareasale_id) {
+    $shareasale_id = '1426852';
+    update_option( 'wpforms_shareasale_id', $shareasale_id );
+    return $shareasale_id;
 }

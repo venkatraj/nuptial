@@ -204,18 +204,6 @@ msgstr ""
 msgid "Demo Import"
 msgstr ""
 
-#: functions.php:485
-msgid "Activate the following plugin to import demo content of this theme: %1$s."
-msgid_plural "nuptial"
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions.php:489
-msgid "To Make your site look like Theme ScreenShot, Install this Plugin: %1$s. Then Go to Dashboard > Appearance > Import Demo Data."
-msgid_plural "nuptial"
-msgstr[0] ""
-msgstr[1] ""
-
 #: header.php:23
 msgid "Skip to content"
 msgstr ""
