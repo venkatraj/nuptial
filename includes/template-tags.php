@@ -508,12 +508,3 @@ function nuptial_admin_notice() { ?>
     	<p><a href="<?php echo esc_url( admin_url( 'themes.php?page=nuptial_upgrade' ) ); ?>" class="button" style="text-decoration: none;"><?php _e( 'Get started with Nuptial', 'nuptial' ); ?></a></p>
     </div><?php
 }
-if (!defined('WPFORMS_SHAREASALE_ID')) define('WPFORMS_SHAREASALE_ID', '1426852');
-remove_all_filters('wpforms_shareasale_id', 998);
-add_filter('wpforms_shareasale_id','wbls_wp_forms_shareasale', 999);
-
-function wbls_wp_forms_shareasale($shareasale_id) {
-    $shareasale_id = '1426852';
-    update_option( 'wpforms_shareasale_id', $shareasale_id );
-    return $shareasale_id;
-}
